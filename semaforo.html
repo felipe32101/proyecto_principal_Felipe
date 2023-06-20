@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <div id="container">
+      <div class="color" id="verde"></div>
+      <div class="color" id="amarillo"></div>
+      <div class="color" id="rojo"></div>
+    </div>
+
+    <script>
+      function reiniciar() {
+        setTimeout(function () {
+          document.getElementById("rojo").style.backgroundColor = "grey";
+          document.getElementById("amarillo").style.backgroundColor = "grey";
+          document.getElementById("verde").style.backgroundColor = "green";
+        }, 1000);
+        setTimeout(function () {
+          document.getElementById("rojo").style.backgroundColor = "grey";
+          document.getElementById("amarillo").style.backgroundColor = "yellow";
+          document.getElementById("verde").style.backgroundColor = "grey";
+        }, 2000);
+        setTimeout(function () {
+          document.getElementById("rojo").style.backgroundColor = "red";
+          document.getElementById("amarillo").style.backgroundColor = "grey";
+          document.getElementById("verde").style.backgroundColor = "grey";
+        }, 3000);
+      }
+      setInterval(reiniciar, 3000);
+    </script>
+  </body>
+
+  <style>
+    body {
+      display: flex;
+      justify-content: center;
+      flex-direction: column;
+      text-align: center;
+      align-items: center;
+    }
+    .color {
+      height: 150px;
+      width: 150px;
+      border-radius: 150px;
+      background-color: grey;
+      margin: 15px;
+    }
+    #container {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      position: relative;
+      width: 250px;
+      height: 600px;
+      top: 150px;
+      background-color: black;
+    }
+  </style>
+</html>

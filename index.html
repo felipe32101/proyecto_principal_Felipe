@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Proyecto</title>
+  </head>
+  <body>
+    <div id="encabezado">
+      <h1>PROYECTO FELIPE PINEDA</h1>
+      <h2>ADSO - 2557356</h2>
+    </div>
+    <div id="botones">
+      <input
+        type="button"
+        name=""
+        id="calcu"
+        onclick="calcu()"
+        value="Calculadora"
+      />
+      <input
+        type="button"
+        name=""
+        id="calendario"
+        onclick="calen()"
+        value="Calendario"
+      />
+      <input
+        type="button"
+        name=""
+        id="factura"
+        onclick="factu()"
+        value="Factura"
+      />
+      <input
+        type="button"
+        name=""
+        id="hojavida"
+        onclick="hoja()"
+        value="Hoja de vida"
+      />
+      <input
+        type="button"
+        name=""
+        id="imgper"
+        onclick="img()"
+        value="Galeria"
+      />
+      <input
+        type="button"
+        name=""
+        id="quien"
+        onclick="quien()"
+        value="¿Quien soy?"
+      />
+      <input
+        type="button"
+        name=""
+        id="semaforo"
+        onclick="sema()"
+        value="Semaforo #1"
+      />
+      <input
+        type="button"
+        name=""
+        id="semaforo2"
+        onclick="sema2()"
+        value="Semaforo #2"
+      />
+    </div>
+    <div id="fin"></div>
+    <script>
+      function calen() {
+        window.open("calendario.html", "_blank");
+      }
+      function calcu() {
+        window.open("calcu.html", "_blank");
+      }
+      function factu() {
+        window.open("factura.html", "_blank");
+      }
+      function hoja() {
+        window.open("hoja_de_vida.html", "_blank");
+      }
+      function quien() {
+        window.open("proyecto.html", "_blank");
+      }
+      function sema() {
+        window.open("semaforo.html", "_blank");
+      }
+      function sema2() {
+        window.open("semaforo2.html", "_blank");
+      }
+      function img() {
+        window.open("imgPerfil.html", "_blank");
+      }
+    </script>
+  </body>
+  <style>
+    body {
+      height: 100vh;
+      margin: 0%;
+      align-items: center;
+      justify-content: center;
+    }
+    #encabezado {
+      height: 150px;
+      text-align: center;
+      padding: 15px;
+      background-color: rgb(1, 92, 92);
+      color: white;
+      font-family: "Franklin Gothic Medium", "Arial Narrow", Arial, sans-serif;
+    }
+    input {
+      height: 320.3px;
+      margin: 10px;
+      font-size: 48px;
+      font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    }
+    #botones{
+      display: grid;
+      grid-template-columns: 25% 25% 25% 25%;
+      background-color: rgb(80, 82, 69);
+    }
+    #fin{
+      background-color: rgb(1, 92, 92);
+      height: 100px;
+    }
+  </style>
+</html>

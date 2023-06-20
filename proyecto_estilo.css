@@ -1,0 +1,287 @@
+body{
+    margin: 0;
+}
+
+.barra_superior{
+    width: 100%;
+    height: 70px;
+    background-color: gray;
+    display: grid;
+    grid-template-columns: 70% 10% 10% 10%;
+    position: fixed;
+}
+
+.nombre{
+    margin-top: 19px;
+    margin-left: 70px;
+    font-size: 3.5ch;
+    font-weight: bold;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+}
+
+.viñeta1{
+    text-align: center;
+    background-color: gray;
+    border: 0;
+    font-weight: bold;
+    font-size: 2ch;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+}
+
+.viñeta1:hover{
+    background-color: rgb(103, 103, 103);
+}
+
+.viñeta2{
+    text-align: center;
+    background-color: gray;
+    border: 0;
+    font-weight: bold;
+    font-size: 2ch;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+}
+
+.viñeta2:hover{
+    background-color: rgb(103, 103, 103);
+}
+
+.viñeta3{
+    text-align: center;
+    background-color: gray;
+    border: 0;
+    font-weight: bold;
+    font-size: 2ch;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+}
+
+.viñeta3:hover{
+    background-color: rgb(103, 103, 103);
+}
+
+.quien_soy{
+    background-color: white;
+    width: 100%;
+    display: grid;
+    grid-template-columns: 50% 50%;
+}
+
+.titulo{
+    margin-top: 225px;
+    margin-bottom: 15px;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    color: rgb(248, 58, 58);
+    font-size: 5ch;
+    grid-column: 2/3;
+    font-weight: bold;
+}
+
+.p1{
+    grid-column: 2/3;
+    margin-right: 300px;
+    font-size: 3ch;
+    text-align: justify;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+}
+
+.boton1{
+    grid-column: 2/3;
+    margin-right: 800px;
+    margin-top: 25px;
+    background-color: rgb(255, 102, 102);
+    border: 0;
+    color: white;
+    font-size: 2ch;
+    font-weight: bold;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    height: 35px;
+    border-radius: 9%;
+}
+
+.boton1:hover{
+    background-color: rgb(252, 44, 44);
+}
+
+.imagen1{
+    grid-column: 1/2;
+    text-align: center;
+    grid-row: 1/5;
+    margin-top: 100px;
+    margin-bottom: 100px;
+    padding: 0%;
+    margin: 0;
+}
+
+.presentacion{
+    background-color: rgb(255, 102, 102);
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+}
+
+.imagen2{
+    border-radius: 50%;
+    margin-top: 50px;
+    margin-bottom: 25px;
+}
+
+.p2{
+    margin-left: 300px;
+    margin-right: 300px;
+    font-size: 5ch;
+    text-align: justify;
+    margin-bottom: 25px;
+    color: white;
+}
+
+.nombre2{
+    font-size: 4ch;
+    color: white;
+    margin-bottom: 50px;
+}
+
+.proyectos{
+    display: grid;
+    width: 100%;
+    grid-template-rows: 20% 80%;
+    grid-template-columns: 25% 25% 25% 25%;
+    justify-content: space-evenly;
+}
+
+.titulo2{
+    text-align: center;
+    grid-row: 1/2;
+    grid-column: 2/4;
+    margin-top: 50px;
+    margin-bottom: 100px;
+    font-size: 5ch;
+    font-weight: bold;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+}
+
+.tarjeta1{
+    grid-column: 1/2;
+    grid-row: 2/3;
+    margin-top: 15px;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    margin-left: 80px;
+    margin-right: 50px;
+    text-align: justify;
+    width: 300px;
+    height: 430px;
+    border: 2px solid black;
+}
+
+.tarjeta1:hover, .tarjeta2:hover, .tarjeta3:hover, .tarjeta4:hover{
+    background-color: rgb(244, 244, 244);
+}
+
+.tarjeta2, .tarjeta3, .tarjeta4{
+    grid-row: 2/3;
+    margin-top: 15px;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    margin-left: 50px;
+    margin-right: 50px;
+    text-align: justify;
+    width: 300px;
+    height: 430px;
+    border: 2px solid black;
+}
+
+.tarjeta2{
+    grid-column: 2/3;
+}
+
+.tarjeta3{
+    grid-column: 3/4;
+}
+
+.tarjeta4{
+    grid-column: 4/5;
+}
+
+.imagen3, .imagen4, .imagen5, .imagen6{
+    margin-top: 10px;
+    margin-bottom: 10px;
+    margin-left: 16px;
+}
+
+.proyecto1, .proyecto2, .proyecto3, .proyecto4{
+    text-align: center;
+    margin-bottom: 10px;
+    font-size: 3ch;
+    font-weight: bold;
+}
+
+.texto1, .texto2, .texto3, .texto4{
+    margin-left: 16px;
+    margin-right: 16px;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+}
+
+.boton2:hover, .boton3:hover, .boton4:hover, .boton5:hover{
+    background-color: rgb(252, 44, 44);
+}
+
+.boton2, .boton3, .boton4, .boton5{
+    background-color: rgb(255, 102, 102);
+    border: 0;
+    border-radius: 10%;
+    color: white;
+    height: 30px;
+    margin-left: 115px;
+    margin-top: 10px;
+}
+
+.barra_inferior{
+    width: 100%;
+    height: 70px;
+    background-color: gray;
+    text-align: end;
+}
+
+.copy{
+    font-size: 2.5ch;
+    color: black;
+    padding: 20px;
+    margin-right: 25px;
+}
+
+@media only screen and (max-width: 400px){
+    
+    .barra_superior{
+        width: 360px;
+        height: 70px;
+        background-color: gray;
+        display: flex;
+        flex-direction: row;
+    }
+
+    .nombre{
+        font-size: px;
+        margin-left: 1px;
+    }
+
+    .viñeta1, .viñeta2, .viñeta3{
+        text-align: end;
+    }
+
+    .viñeta1{
+        margin-left: 215px;
+    }
+
+    .quien_soy{
+        background-color: white;
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+    }
+
+    .imagen1{
+        margin-top: 15px;
+    }
+
+
+}

@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>ImgPerfil</title>
+    <link rel="stylesheet" href="imgPerfil.css" />
+  </head>
+
+  <body>
+    <div id="container">
+      <div id="imgPrin"></div>
+    </div>
+
+    <div class="flex">
+      <section id="section"></section>
+    </div>
+
+    <script>
+      let circulo = document.getElementById("imgPrin");
+      let img = document.createElement("img");
+      let fotos = document.getElementById("section");
+      let imagenes = [
+        "./imagenes/lic1.jpg",
+        "./imagenes/lic2.jfif",
+        "./imagenes/lic3.jpg",
+        "./imagenes/lic4.jfif",
+        "./imagenes/lic5.jfif",
+        "./imagenes/lic6.jpg",
+        "./imagenes/lic7.png",
+        "./imagenes/lic8.jfif",
+        "./imagenes/lic9.jpg",
+        "./imagenes/lic10.jfif",
+        "./imagenes/lic11.jfif",
+        "./imagenes/lic12.jfif",
+      ];
+
+      for (let i = 0; i < 12; i++) {
+        let div = document.createElement("div");
+        div.id = "etiqueta" + i;
+
+        let img = document.createElement("img");
+        img.src = imagenes[0 + i];
+        img.alt = "Imagen" + i;
+
+        div.appendChild(img);
+        fotos.appendChild(div);
+      }
+
+      for (let i = 0; i < 12; i++) {
+        document
+          .getElementById("etiqueta" + i)
+          .addEventListener("click", function () {
+            img.src = imagenes[0 + i];
+            circulo.appendChild(img);
+          });
+      }
+    </script>
+  </body>
+</html>

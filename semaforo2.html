@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <div id="container">
+        <div class="color" id="verde"></div>
+        <div class="color" id="amarillo"></div>
+        <div class="color" id="rojo"></div>
+    </div>
+
+    <input type="button" name="" id="boton" value="Click" />
+
+    <script>
+      const verde = document.getElementById("verde");
+      const amarillo = document.getElementById("amarillo");
+      const rojo = document.getElementById("rojo");
+
+      let divselecc = 2;
+      let colores = ["green", "yellow", "red"];
+      let div = document.querySelectorAll(".color");
+
+      const boton = document.getElementById("boton");
+
+      boton.addEventListener("click", function () {
+        let divactual = div[divselecc];
+        divactual.style.backgroundColor = "";
+
+        divselecc = (divselecc + 1) % div.length;
+
+        let siguientediv = div[divselecc];
+        siguientediv.style.backgroundColor = colores[divselecc];
+      });
+    </script>
+  </body>
+  <style>
+    body {
+      display: flex;
+      justify-content: center;
+      flex-direction: column;
+      text-align: center;
+      align-items: center;
+    }
+
+    .color {
+      height: 150px;
+      width: 150px;
+      border-radius: 150px;
+      background-color: grey;
+      margin: 15px;
+    }
+    #boton {
+      position: relative;
+      left: 20%;
+      bottom: 170px;
+      width: 200px;
+      height: 50px;
+    }
+    #container{
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        position: relative;
+        width: 250px;
+        height: 600px;
+        top: 150px;
+        background-color: black;
+    }
+  </style>
+</html>

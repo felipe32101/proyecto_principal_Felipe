@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <section>
+      <input type="text" name="" id="resultado" />
+
+      <input type="button" name="" id="b1" value="1" />
+      <input type="button" name="" id="b2" value="2" />
+      <input type="button" name="" id="b3" value="3" />
+      <input type="button" name="" id="bmas" value="+" />
+      <input type="button" name="" id="bmenos" value="-" />
+
+      <input type="button" name="" id="b4" value="4" />
+      <input type="button" name="" id="b5" value="5" />
+      <input type="button" name="" id="b6" value="6" />
+      <input type="button" name="" id="bpor" value="*" />
+      <input type="button" name="" id="bdiv" value="/" />
+
+      <input type="button" name="" id="b7" value="7" />
+      <input type="button" name="" id="b8" value="8" />
+      <input type="button" name="" id="b9" value="9" />
+      <input type="button" name="" id="bpot" value="^" />
+      <input type="button" name="" id="braiz" value="√" />
+
+      <input type="button" name="" id="b0" value="0" />
+      <input type="button" name="" id="bpunt" value="." />
+      <input type="button" name="" id="bc" value="C" />
+      <input type="button" name="" id="bigu" value="=" />
+    </section>
+
+    <script>
+      let operandoa;
+      let operandob;
+      let operacion;
+
+      let uno = document.getElementById("b1");
+      let dos = document.getElementById("b2");
+      let tres = document.getElementById("b3");
+      let cuatro = document.getElementById("b4");
+      let cinco = document.getElementById("b5");
+      let seis = document.getElementById("b6");
+      let siete = document.getElementById("b7");
+      let ocho = document.getElementById("b8");
+      let nueve = document.getElementById("b9");
+      let cero = document.getElementById("b0");
+      let mas = document.getElementById("bmas");
+      let menos = document.getElementById("bmenos");
+      let multi = document.getElementById("bpor");
+      let divi = document.getElementById("bdiv");
+      let poten = document.getElementById("bpot");
+      let raiz = document.getElementById("braiz");
+      let punto = document.getElementById("bpunt");
+      let igual = document.getElementById("bigu");
+      let reset = document.getElementById("bc");
+      let resultado = document.getElementById("resultado");
+
+      uno.onclick = function (e) {
+        resultado.value = resultado.value + "1";
+      };
+      dos.onclick = function (e) {
+        resultado.value = resultado.value + "2";
+      };
+      tres.onclick = function (e) {
+        resultado.value = resultado.value + "3";
+      };
+      cuatro.onclick = function (e) {
+        resultado.value = resultado.value + "4";
+      };
+      cinco.onclick = function (e) {
+        resultado.value = resultado.value + "5";
+      };
+      seis.onclick = function (e) {
+        resultado.value = resultado.value + "6";
+      };
+      siete.onclick = function (e) {
+        resultado.value = resultado.value + "7";
+      };
+      ocho.onclick = function (e) {
+        resultado.value = resultado.value + "8";
+      };
+      nueve.onclick = function (e) {
+        resultado.value = resultado.value + "9";
+      };
+      cero.onclick = function (e) {
+        resultado.value = resultado.value + "0";
+      };
+      punto.onclick = function (e) {
+        resultado.value = resultado.value + ".";
+      };
+
+      reset.onclick = function (e) {
+        resetear();
+      };
+      mas.onclick = function (e) {
+        operandoa = resultado.value;
+        operacion = "+";
+        limpiar();
+      };
+      menos.onclick = function (e) {
+        operandoa = resultado.value;
+        operacion = "-";
+        limpiar();
+      };
+      multi.onclick = function (e) {
+        operandoa = resultado.value;
+        operacion = "*";
+        limpiar();
+      };
+      divi.onclick = function (e) {
+        operandoa = resultado.value;
+        operacion = "/";
+        limpiar();
+      };
+      poten.onclick = function (e) {
+        operandoa = resultado.value;
+        operacion = "^";
+        limpiar();
+      };
+      raiz.onclick = function (e) {
+        operandoa = resultado.value;
+        operacion = "√";
+        limpiar();
+      };
+      igual.onclick = function (e) {
+        operandob = resultado.value;
+        resolver();
+      };
+
+      function limpiar() {
+        resultado.value = "";
+      }
+
+      function resetear() {
+        resultado.value = "";
+        operandoa = 0;
+        operandob = 0;
+        operacion = "";
+      }
+
+      function resolver() {
+        var res = 0;
+        switch (operacion) {
+          case "+":
+            res = parseFloat(operandoa) + parseFloat(operandob);
+            break;
+
+          case "-":
+            res = parseFloat(operandoa) - parseFloat(operandob);
+            break;
+
+          case "*":
+            res = parseFloat(operandoa) * parseFloat(operandob);
+            break;
+
+          case "/":
+            res = parseFloat(operandoa) / parseFloat(operandob);
+            break;
+
+          case "^":
+            res = Math.pow(parseFloat(operandoa), parseFloat(operandob));
+            break;
+
+          case "√":
+            res = Math.pow(parseFloat(operandoa),1/ parseFloat(operandob));
+            break;
+        }
+        resetear();
+        resultado.value = res;
+      }
+    </script>
+  </body>
+  <style>
+    body {
+      text-align: center;
+      background-color: rgb(111, 190, 190);
+      margin: 0;
+      display: flex;
+      justify-content: center;
+      padding: 7%;
+    }
+
+    section {
+      width: 45%;
+      background-color: white;
+      padding: 2%;
+      box-shadow: 2px 2px 10px 10px rgb(65, 65, 65);
+      font-family: "Franklin Gothic Medium", "Arial Narrow", Arial, sans-serif;
+    }
+
+    #resultado {
+      border: 2px solid black;
+      width: 100%;
+      height: 100px;
+      margin-bottom: 4%;
+      text-align: center;
+      display: flex;
+    }
+
+    input {
+      width: 130px;
+      height: 100px;
+      margin: 2px;
+      font-weight: bold;
+      font-size: 40px;
+    }
+
+    #bigu {
+      width: 269px;
+    }
+  </style>
+</html>

@@ -1,0 +1,136 @@
+body{
+    margin: 0;
+    height: 100vh;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+
+}
+
+section{
+    display: grid;
+    grid-template-columns: repeat(4, 23%);
+    gap: 20px;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 20px 20px;
+}
+
+.container{
+    border: 1px solid black;
+    border-radius: 6px;
+    box-shadow: 10px 10px 10px gray;
+    text-align: center;
+    display: grid;
+    height: 400px;
+}
+
+.part1{
+    background-color: rgb(233, 80, 80);
+    color: white;
+    padding: 20px;
+    text-align: start;
+}
+
+.diaA, .mes{
+    font-size: 50px;
+}
+
+.mes{
+    margin-bottom: 5px;
+}
+
+.dia:hover, .diaB:hover{
+    background-color: rgb(255, 159, 159);
+}
+
+.diaB{
+    color: rgb(172, 172, 172);
+}
+
+.part2{
+    display: grid;
+    grid-template-columns: repeat(7, 14.2857143%);
+    padding: 20px;
+}
+
+.anillos{
+    position:absolute;
+    margin-top: 150px;
+    display: grid;
+    grid-template-columns: repeat(4, 25%);
+}
+
+.anillo1{
+    height: 40px;
+    width: 16px;
+    border-radius: 10px;
+    background-color: rgb(255, 207, 207);
+    margin-left: 50px;
+}
+
+.anillo2{
+    height: 40px;
+    width: 16px;
+    border-radius: 10px;
+    background-color: rgb(255, 207, 207);
+    position: absolute;
+    margin-left: 70px;
+}
+
+.anillo3{
+    height: 40px;
+    width: 16px;
+    border-radius: 10px;
+    background-color: rgb(255, 207, 207);
+    position: absolute;
+    margin-left: 33.5dvh;
+}
+
+.anillo4{
+    height: 40px;
+    width: 16px;
+    border-radius: 10px;
+    background-color: rgb(255, 207, 207);
+    position: absolute;
+    margin-left: 35.5dvh;
+}
+
+.lunes, .martes, .miercoles, .jueves, .viernes, .sabado, .domingo{
+    color: rgb(233, 80, 80);
+    display: grid;
+    grid-template-rows: repeat(6, 16.66%);
+    margin-bottom: 20px;
+    margin-top: 20px;
+}
+
+.dia, .diab{
+    color: black;
+    margin: 2px;
+}
+
+@media (min-width: 901px) and (max-width: 1316px) {
+    section{
+        grid-template-columns: repeat(3, 31%);
+    }
+    .container{
+        margin-top: 20px;
+    }
+}
+
+@media (max-width: 900px) {
+    section{
+        grid-template-columns: repeat(2, 45%);
+    }
+    .container{
+        margin-top: 20px;
+    }
+}
+
+@media (max-width: 600px) {
+    section{
+        grid-template-columns: repeat(1, 90%);
+    }
+    .container{
+        margin-top: 20px;
+    }
+}
