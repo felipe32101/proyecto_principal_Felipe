@@ -1,130 +1,98 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Proyecto</title>
-  </head>
-  <body>
-    <div id="encabezado">
-      <h1>PROYECTO FELIPE PINEDA</h1>
-      <h2>ADSO - 2557356</h2>
+
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM" crossorigin="anonymous" />
+  <link rel="stylesheet" href="./style.css" />
+  <title>Document</title>
+</head>
+
+<body>
+  <div id="tituloPrin">
+    <h1 style="margin: 20px 0px; text-align: center" id="tituloPrin">
+      Veterinaria sanao
+    </h1>
+  </div>
+
+  <div style="display: flex; justify-content: center; width: 90%">
+    <button onclick="crear()" style="margin: 20px 0px" data-bs-toggle="modal" data-bs-target="#exampleModal" id="crear">
+      Nuevo registro
+    </button>
+  </div>
+
+  <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h1 class="modal-title fs-5" id="exampleModalLabel">Formulario</h1>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+          <p id="p1" style="display: none;">Por favor digite el nombre de su mascota</p>
+          <label for="">Nombre mascota</label><input type="text" id="nombre" /> <br />
+          <p id="p2" style="display: none;">Por favot digite su nombre</p>
+          <label for="">Propietario</label><input type="text" id="propietario" /> <br />
+          <p id="p3" style="display: none;">Por favor digite su número de telefono</p>
+          <p id="p4" style="display: none;">Por favor que el numero de telefono tenga 10 caracteres</p>
+          <label for="">Telefono</label><input type="number" id="telefono" />
+          <br />
+          <p id="p5" style="display: none;">Seleccione un tipo de animal</p>
+          <label for="">Tipo animal</label>
+          <select id="tipo">
+            <option value="0" disabled selected>Seleccione un tipo</option>
+            <option value="mamifero">Mamifero</option>
+            <option value="reptil">Reptil</option>
+            <option value="anfibio">Anfibio</option>
+            <option value="ave">Ave</option>
+            <option value="pez">Pez</option>
+          </select>
+          <br />
+          <p id="p6" style="display: none;">Seleccione una fecha para su cita</p>
+          <p id="p7" style="display: none;">Seleccione una fecha que sea posterior al dia actual</p>
+          <label for="">Fecha</label><input type="date" id="fecha" /> <br />
+          <p id="p8" style="display: none;">Seleccione una hora para su cita</p>
+          <p id="p9" style="display: none;">Seleccione una hora que este entre 8am a 7pm</p>
+          <label for="">Hora</label><input type="time" id="hora" /> <br />
+          <p id="p10" style="display: none;">Por favor digite los sintomas que siente el animal</p>
+          <label for="">Sintomas</label><input type="text" id="sintomas" /> <br>
+          <p id="p11" style="display: none;">¡Registro exitoso!</p>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">
+            Cerrar
+          </button>
+          <button onclick="guardar()" type="button" class="btn btn-primary" id="agendarCita">
+            Agendar cita
+          </button>
+        </div>
+      </div>
     </div>
-    <div id="botones">
-      <input
-        type="button"
-        name=""
-        id="calcu"
-        onclick="calcu()"
-        value="Calculadora"
-      />
-      <input
-        type="button"
-        name=""
-        id="calendario"
-        onclick="calen()"
-        value="Calendario"
-      />
-      <input
-        type="button"
-        name=""
-        id="factura"
-        onclick="factu()"
-        value="Factura"
-      />
-      <input
-        type="button"
-        name=""
-        id="hojavida"
-        onclick="hoja()"
-        value="Hoja de vida"
-      />
-      <input
-        type="button"
-        name=""
-        id="imgper"
-        onclick="img()"
-        value="Galeria"
-      />
-      <input
-        type="button"
-        name=""
-        id="quien"
-        onclick="quien()"
-        value="¿Quien soy?"
-      />
-      <input
-        type="button"
-        name=""
-        id="semaforo"
-        onclick="sema()"
-        value="Semaforo #1"
-      />
-      <input
-        type="button"
-        name=""
-        id="semaforo2"
-        onclick="sema2()"
-        value="Semaforo #2"
-      />
+  </div>
+
+  <div id="titulo2">
+    <div>
+      <h1>Citas agendadas</h1>
     </div>
-    <div id="fin"></div>
-    <script>
-      function calen() {
-        window.open("calendario.html", "_blank");
-      }
-      function calcu() {
-        window.open("calcu.html", "_blank");
-      }
-      function factu() {
-        window.open("factura.html", "_blank");
-      }
-      function hoja() {
-        window.open("hoja_de_vida.html", "_blank");
-      }
-      function quien() {
-        window.open("proyecto.html", "_blank");
-      }
-      function sema() {
-        window.open("semaforo.html", "_blank");
-      }
-      function sema2() {
-        window.open("semaforo2.html", "_blank");
-      }
-      function img() {
-        window.open("imgPerfil.html", "_blank");
-      }
-    </script>
-  </body>
-  <style>
-    body {
-      height: 100vh;
-      margin: 0%;
-      align-items: center;
-      justify-content: center;
-    }
-    #encabezado {
-      height: 150px;
-      text-align: center;
-      padding: 15px;
-      background-color: rgb(1, 92, 92);
-      color: white;
-      font-family: "Franklin Gothic Medium", "Arial Narrow", Arial, sans-serif;
-    }
-    input {
-      height: 320.3px;
-      margin: 10px;
-      font-size: 48px;
-      font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
-    }
-    #botones{
-      display: grid;
-      grid-template-columns: 25% 25% 25% 25%;
-      background-color: rgb(80, 82, 69);
-    }
-    #fin{
-      background-color: rgb(1, 92, 92);
-      height: 100px;
-    }
-  </style>
+    <div>
+      <select name="" id="check" onchange="filtrarPorEstado()">
+        <option value="todas" selected>Todas</option>
+        <option value="Anulada">Anuladas</option>
+        <option value="Terminada">Terminadas</option>
+        <option value="enProceso">En proceso</option>
+      </select>
+    </div>
+
+  </div>
+  <div id="contenedor"></div>
+
+  <script src="./index.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-geWF76RCwLtnZ8qwWowPQNguL3RmwHVBC9FhGdlKrxdiJJigb/j/68SIy3Te4Bkz"
+    crossorigin="anonymous"></script>
+</body>
+
 </html>
