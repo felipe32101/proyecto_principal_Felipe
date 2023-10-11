@@ -2,7 +2,7 @@ let data = [];
 
 document.addEventListener("DOMContentLoaded", () => {
   pintar();
-  filtrar()
+  filtrarPorEstado();
 });
 
 const limpiar = () => {
@@ -13,7 +13,6 @@ const limpiar = () => {
   document.querySelector("#fecha").value = "";
   document.querySelector("#hora").value = "";
   document.querySelector("#sintomas").value = "";
-
 };
 
 let animals = [
@@ -46,10 +45,16 @@ function pintar() {
       return p;
     };
 
+    let estadoSeleccionado = document.getElementById("estadoFiltro").value;
+    
     if (d.tipo && animals.find((animal) => animal.nombre === d.tipo)) {
       const animal = animals.find((animal) => animal.nombre === d.tipo);
       foto.src = animal.img;
     }
+
+    let estadoCita = document.createElement("p");
+    estadoCita.textContent = `Estado: ${d.estadooo}`;
+    estadoCita.setAttribute("id","estadio");
 
     detallesContainer.appendChild(crearDetalles("Nombre: ", d.nombre));
     detallesContainer.appendChild(crearDetalles("Tipo: ", d.tipo));
@@ -61,24 +66,6 @@ function pintar() {
 
     let btEditar = document.createElement("button");
     let btBorrar = document.createElement("button");
-    let select = document.createElement("select");
-    select.id = "select"
-
-    let opcion1 = document.createElement("option")
-    opcion1.id = "enProceso"
-    opcion1.text = "En proceso"
-    opcion1.value = "enProceso"
-    select.add(opcion1)
-
-    let opcion2 = document.createElement("option")
-    opcion2.text = "Terminada"
-    opcion2.value = "Terminada"
-    select.add(opcion2)
-
-    let opcion3 = document.createElement("option")
-    opcion3.text = "Anulada"
-    opcion3.value = "Anulada"
-    select.add(opcion3)
 
       btEditar.textContent = "Editar";
       btEditar.setAttribute("data-bs-toggle", "modal");
@@ -96,14 +83,15 @@ function pintar() {
       botonesContainer.classList.add("botones-container");
       botonesContainer.appendChild(btEditar);
       botonesContainer.appendChild(btBorrar);
-      botonesContainer.appendChild(select);
+      botonesContainer.appendChild(estadoCita);
 
-      contenedor.appendChild(foto);
-      contenedor.appendChild(detallesContainer);
-      contenedor.appendChild(botonesContainer);
-      fragment.appendChild(contenedor);
+        contenedor.appendChild(foto);
+        contenedor.appendChild(detallesContainer);
+        contenedor.appendChild(botonesContainer);
+        fragment.appendChild(contenedor);
 
     });
+    document.getElementById("contenedor").innerHTML = "";
     document.getElementById("contenedor").appendChild(fragment);
   }
 
@@ -115,21 +103,22 @@ function pintar() {
   }
 
   function filtrarPorEstado() {
-    const estadoSeleccionado = document.getElementById("check").value;
-    if (estadoSeleccionado === "todas") {
-      mostrarTodasLasTarjetas(); 
+    const estadoSeleccionado = document.getElementById("estadoFiltro").value;
+    const eleccionEstado = document.getElementById('check').value;
+    if (estadoSeleccionado === "Todas") {
+      mostrarTodasLasTarjetas();
       return;
     }
     const cartas = document.querySelectorAll(".citas");
-  cartas.forEach((i) => {
-    const estadoTexto = i.getElementById("select").value;
-    if (estadoTexto === estadoSeleccionado) {
-      i.style.display = "block";
-    } else {
-      i.style.display = "none";
-    }
-  });
-}
+    cartas.forEach((i) => {
+      const estadoTexto = i.querySelector("#estadio").textContent;
+      if (eleccionEstado === "Todas" || estadoTexto.includes(eleccionEstado)) {
+        i.style.display = "block";
+      } else {
+        i.style.display = "none";
+      }
+    });
+  }
 
 let bd = 0;
 let c = 0;
@@ -237,7 +226,7 @@ function guardar() {
       });
       console.log(data);
       limpiar()
-      document.getElementById("agendarCita").setAttribute = ("data-bs-dismiss", "modal")
+      document.getElementById("agendarCita").dataset.bsDismiss = "modal";
     }
     document.getElementById("contenedor").innerHTML = "";
     pintar();
@@ -260,7 +249,7 @@ function editar(r) {
 function crear() {
   limpiar();
   bd = 0;
-  document.getElementById("id").value = data[data.length - 1].id + 1;
+  id++;
 }
 
 function eliminar(i) {

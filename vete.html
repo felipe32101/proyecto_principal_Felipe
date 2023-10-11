@@ -51,6 +51,13 @@
             <option value="pez">Pez</option>
           </select>
           <br />
+          <label for="" id="estadooo">Estado de cita</label>
+            <select id="estadoFiltro" onchange="filtrarPorEstado()">
+              <option value="En Proceso">En Proceso</option>
+              <option value="Terminadas">Terminadas</option>
+              <option value="Anuladas">Anuladas</option>
+            </select>
+          <br>
           <p id="p6" style="display: none;">Seleccione una fecha para su cita</p>
           <p id="p7" style="display: none;">Seleccione una fecha que sea posterior al dia actual</p>
           <label for="">Fecha</label><input type="date" id="fecha" /> <br />
@@ -79,10 +86,10 @@
     </div>
     <div>
       <select name="" id="check" onchange="filtrarPorEstado()">
-        <option value="todas" selected>Todas</option>
-        <option value="Anulada">Anuladas</option>
-        <option value="Terminada">Terminadas</option>
-        <option value="enProceso">En proceso</option>
+        <option value="Todas" selected>Todas</option>
+        <option value="Anuladas">Anuladas</option>
+        <option value="Terminadas">Terminadas</option>
+        <option value="En Proceso">En proceso</option>
       </select>
     </div>
 
