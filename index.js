@@ -152,6 +152,7 @@ function mostrarTodasLasTarjetas() {
   });
 }
 
+//prueba para commit
 function filtrarPorEstado() {
   const estadoSeleccionado = document.getElementById("estadoFiltro").value;
   const eleccionEstado = document.getElementById("check").value;
