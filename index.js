@@ -1,4 +1,38 @@
-let data = [];
+let data = [
+  {
+    id: 1,
+    nombre: "hola",
+    propietario: "hola",
+    telefono: "1234567890",
+    tipo: "mamifero",
+    fecha: "2023-12-21",
+    hora: "08:22",
+    sintomas: "xd",
+    estado: 'En Proceso'
+  },
+  {
+    id: 2,
+    nombre: "hola",
+    propietario: "hola",
+    telefono: "1234567890",
+    tipo: "reptil",
+    fecha: "2023-12-21",
+    hora: "08:22",
+    sintomas: "xd",
+    estado: 'Terminadas'
+  },
+  {
+    id: 3,
+    nombre: "hola",
+    propietario: "hola",
+    telefono: "1234567890",
+    tipo: "ave",
+    fecha: "2023-12-21",
+    hora: "08:22",
+    sintomas: "xd",
+    estado: 'Anuladas'
+  },
+];
 
 document.addEventListener("DOMContentLoaded", () => {
   pintar();
@@ -16,16 +50,32 @@ const limpiar = () => {
 };
 
 let animals = [
-  { nombre: "mamifero", img: "http://www.anipedia.net/imagenes/ciervos-animales-mamiferos.jpg" },
-  { nombre: "reptil", img: "https://concepto.de/wp-content/uploads/2019/03/serpiente-azul-e1553039545947-800x400.jpg" },
-  { nombre: "anfibio", img: "https://www.ejemplos.co/wp-content/uploads/2016/09/ranas-genes-min-e1507319541109.jpg" },
-  { nombre: "ave", img: "https://humanidades.com/wp-content/uploads/2017/03/pajaro-azul-e1563758291533.jpg" },
-  { nombre: "pez", img: "https://images.hola.com/imagenes/estar-bien/20201021177701/pez-betta-caracteristicas-cuidados/0-880-714/pez-betta-t.jpg?tx=w_680" },
-]
+  {
+    nombre: "mamifero",
+    img: "./vete/ciervo.jpg",
+  },
+  {
+    nombre: "reptil",
+    img: "./vete/serpiente.jpg",
+  },
+  {
+    nombre: "anfibio",
+    img: "./vete/rana.jpg",
+  },
+  {
+    nombre: "ave",
+    img: "./vete/ave.jpg",
+  },
+  {
+    nombre: "pez",
+    img: "./vete/pez.jpg",
+  },
+];
 
 function pintar() {
   let fragment = document.createDocumentFragment();
   data.forEach((d, i) => {
+    console.log("d", d);
     let contenedor = document.createElement("div");
     contenedor.setAttribute("class", "citas");
 
@@ -46,19 +96,21 @@ function pintar() {
     };
 
     let estadoSeleccionado = document.getElementById("estadoFiltro").value;
-    
+
     if (d.tipo && animals.find((animal) => animal.nombre === d.tipo)) {
       const animal = animals.find((animal) => animal.nombre === d.tipo);
       foto.src = animal.img;
     }
 
     let estadoCita = document.createElement("p");
-    estadoCita.textContent = `Estado: ${d.estadooo}`;
-    estadoCita.setAttribute("id","estadio");
+    estadoCita.textContent = `Estado: ${d.estado}`;
+    estadoCita.setAttribute("id", "estadio");
 
     detallesContainer.appendChild(crearDetalles("Nombre: ", d.nombre));
     detallesContainer.appendChild(crearDetalles("Tipo: ", d.tipo));
-    detallesContainer.appendChild(crearDetalles("Propietario: ", d.propietario));
+    detallesContainer.appendChild(
+      crearDetalles("Propietario: ", d.propietario)
+    );
     detallesContainer.appendChild(crearDetalles("Telefono: ", d.telefono));
     detallesContainer.appendChild(crearDetalles("Fecha: ", d.fecha));
     detallesContainer.appendChild(crearDetalles("Hora: ", d.hora));
@@ -67,58 +119,57 @@ function pintar() {
     let btEditar = document.createElement("button");
     let btBorrar = document.createElement("button");
 
-      btEditar.textContent = "Editar";
-      btEditar.setAttribute("data-bs-toggle", "modal");
-      btEditar.setAttribute("data-bs-target", "#exampleModal");
-      btEditar.addEventListener("click", () => {
-        editar(d);
-      });
-      btBorrar.textContent = "Borrar";
-      btBorrar.addEventListener("click", () => {
-        eliminar(i);
-      });
-
-
-      let botonesContainer = document.createElement("div");
-      botonesContainer.classList.add("botones-container");
-      botonesContainer.appendChild(btEditar);
-      botonesContainer.appendChild(btBorrar);
-      botonesContainer.appendChild(estadoCita);
-
-        contenedor.appendChild(foto);
-        contenedor.appendChild(detallesContainer);
-        contenedor.appendChild(botonesContainer);
-        fragment.appendChild(contenedor);
-
+    btEditar.textContent = "Editar";
+    btEditar.setAttribute("data-bs-toggle", "modal");
+    btEditar.setAttribute("data-bs-target", "#exampleModal");
+    btEditar.addEventListener("click", () => {
+      editar(d);
     });
-    document.getElementById("contenedor").innerHTML = "";
-    document.getElementById("contenedor").appendChild(fragment);
-  }
-
-  function mostrarTodasLasTarjetas() {
-    const cartas = document.querySelectorAll(".citas");
-    cartas.forEach((i) => {
-      i.style.display = "block"; 
+    btBorrar.textContent = "Borrar";
+    btBorrar.addEventListener("click", () => {
+      eliminar(i);
     });
-  }
 
-  function filtrarPorEstado() {
-    const estadoSeleccionado = document.getElementById("estadoFiltro").value;
-    const eleccionEstado = document.getElementById('check').value;
-    if (estadoSeleccionado === "Todas") {
-      mostrarTodasLasTarjetas();
-      return;
+    let botonesContainer = document.createElement("div");
+    botonesContainer.classList.add("botones-container");
+    botonesContainer.appendChild(btEditar);
+    botonesContainer.appendChild(btBorrar);
+    botonesContainer.appendChild(estadoCita);
+
+    contenedor.appendChild(foto);
+    contenedor.appendChild(detallesContainer);
+    contenedor.appendChild(botonesContainer);
+    fragment.appendChild(contenedor);
+  });
+  document.getElementById("contenedor").innerHTML = "";
+  document.getElementById("contenedor").appendChild(fragment);
+}
+
+function mostrarTodasLasTarjetas() {
+  const cartas = document.querySelectorAll(".citas");
+  cartas.forEach((i) => {
+    i.style.display = "block";
+  });
+}
+
+function filtrarPorEstado() {
+  const estadoSeleccionado = document.getElementById("estadoFiltro").value;
+  const eleccionEstado = document.getElementById("check").value;
+  if (estadoSeleccionado === "Todas") {
+    mostrarTodasLasTarjetas();
+    return;
+  }
+  const cartas = document.querySelectorAll(".citas");
+  cartas.forEach((i) => {
+    const estadoTexto = i.querySelector("#estadio").textContent;
+    console.log(estadoTexto);
+    if (eleccionEstado === "Todas" || estadoTexto.includes(eleccionEstado)) {
+      i.style.display = "block";
+    } else {
+      i.style.display = "none";
     }
-    const cartas = document.querySelectorAll(".citas");
-    cartas.forEach((i) => {
-      const estadoTexto = i.querySelector("#estadio").textContent;
-      if (eleccionEstado === "Todas" || estadoTexto.includes(eleccionEstado)) {
-        i.style.display = "block";
-      } else {
-        i.style.display = "none";
-      }
-    });
-  }
+  });
+}
 
 let bd = 0;
 let c = 0;
@@ -127,7 +178,10 @@ let id = 0;
 function horario() {
   var horaInput = document.getElementById("hora").value;
   var horaIngresada = new Date();
-  horaIngresada.setHours(parseInt(horaInput.substr(0, 2)), parseInt(horaInput.substr(3, 2)));
+  horaIngresada.setHours(
+    parseInt(horaInput.substr(0, 2)),
+    parseInt(horaInput.substr(3, 2))
+  );
   var horaMinima = new Date();
   horaMinima.setHours(8, 0, 0); // Hora mínima: 8 AM
   var horaMaxima = new Date();
@@ -136,7 +190,6 @@ function horario() {
   if (horaIngresada < horaMinima || horaIngresada > horaMaxima) {
     return true;
   }
-
 }
 
 function valid() {
@@ -211,6 +264,8 @@ function guardar() {
           e.fecha = document.getElementById("fecha").value;
           e.hora = document.getElementById("hora").value;
           e.sintomas = document.getElementById("sintomas").value;
+          e.estado = document.getElementById('estadoFiltro').value
+
         }
       });
     } else {
@@ -223,9 +278,10 @@ function guardar() {
         fecha: document.getElementById("fecha").value,
         hora: document.getElementById("hora").value,
         sintomas: document.getElementById("sintomas").value,
+        estado: document.getElementById('estadoFiltro').value
       });
       console.log(data);
-      limpiar()
+      limpiar();
       document.getElementById("agendarCita").dataset.bsDismiss = "modal";
     }
     document.getElementById("contenedor").innerHTML = "";
